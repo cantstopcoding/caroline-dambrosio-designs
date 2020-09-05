@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   # add custom routes on top
   get '/signup' => 'users#new'
+  post '/signup' => 'users#create'
   
   resources :categories
   resources :items
