@@ -57,6 +57,7 @@ Item: *join table joining users and posts
 - price
 - description:text
 
+rails g resource Item name image price:integer description:text user:belongs_to post:belongs_to --no-test-framework
 
 User has_many :items 
 Item belongs_to :user 
@@ -65,5 +66,3 @@ Category:
 - name
 - has_many :posts
 - has_many :users, through :posts
-
-rails g resource User first_name last_name username email password_digest --no-test-framework
