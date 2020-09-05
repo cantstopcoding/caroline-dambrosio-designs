@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   # add custom routes on top
+  root 'session#home'
+  
   get '/signup' => 'users#new'
   post '/signup' => 'users#create'
   
