@@ -1,31 +1,3 @@
-ChefModels- 
-
-User:
-- has_many :posts
--  has_many :recipes
-- has_many :commented_recipes, through :comments
-
-
-Recipes:
-- belongs_to :user
-- has_many :comments
-- has_many :users, through :comments
-- title
-- ingredients
-- instructions
-- contens
-- description
-
-Comment:
-- belongs_to :users
-- belongs_to :recipe
-
-Category: 
-- name
-- has_many :recipes
-- has_many :users, through :recipes
-
-
 Caroline Models-
 
 Caroline would be an admin
@@ -66,3 +38,44 @@ Category:
 - name
 - has_many :posts
 - has_many :users, through :posts
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ChefModels- 
+
+User:
+- has_many :posts
+-  has_many :recipes
+- has_many :commented_recipes, through :comments
+
+
+Recipes:
+- belongs_to :user
+- has_many :comments
+- has_many :users, through :comments
+- title
+- ingredients
+- instructions
+- contens
+- description
+
+Comment:
+- belongs_to :users
+- belongs_to :recipe
+
+Category: 
+- name
+- has_many :recipes
+- has_many :users, through :recipes
