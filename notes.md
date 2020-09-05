@@ -66,4 +66,4 @@ Category:
 - has_many :posts
 - has_many :users, through :posts
 
-rails g resource Post title content:text user:belongs_to category:belongs_to --no-test-framework
+rails g resource User first_name last_name username email password_digest --no-test-framework
