@@ -1,5 +1,7 @@
 <h1>Login</h1>
 
+<%= flash[:message] if flash[:message] %><br>
+
 <%# because there is no object, it automatically sends the data to the post sign in route %>
 <%= form_for :user do |f| %>
     <%= f.label :email %>:<br>
