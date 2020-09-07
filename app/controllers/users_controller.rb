@@ -14,6 +14,7 @@ class UsersController < ApplicationController
     end
 
     def show
+        redirect_if_not_logged_in
         # use find_by instead of find because find will throw up error 
         # and find_by will return nil
         @user = User.find_by(id: params[:id])
