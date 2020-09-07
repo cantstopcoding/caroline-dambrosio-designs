@@ -12,7 +12,11 @@ Rails.application.routes.draw do
   
   # resources :categories
   resources :items
-  resources :users
-  resources :posts
+  resources :users do 
+    resources :posts, only: [:new, :create, :index] #=> only: [:new, :create, :index] is called shallow routing 
+  end
+  resources :posts do 
+    resources :items , only: [:new, :create, :index]
+  end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
