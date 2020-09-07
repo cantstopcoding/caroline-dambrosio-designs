@@ -4,7 +4,7 @@ class Post < ApplicationRecord
   has_many :users, through: :items
   # why has many users though?
 
-  belongs_to :category
+  # belongs_to :category
 end
 
 
