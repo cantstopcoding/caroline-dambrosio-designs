@@ -1,4 +1,8 @@
 class ApplicationController < ActionController::Base
+    # so I can use these methods in the views 
+    helper_method :current_user, :logged_in?
+
+    private
     # I used the name @current_user so nothing get overridden
     # this is called memoization 
     def current_user
