@@ -40,6 +40,19 @@ Category:
 - has_many :users, through :posts
 
 
+Nested Routes:
+
+/users
+/users/:id/posts
+/users/:id/items(maybe)
+
+/posts
+/posts/:id/items
+
+/comments
+
+
+
 
 
 
