@@ -14,8 +14,8 @@
       <%# is there a way to log to take away this conditional logic in the views%>
       <% if logged_in? %>
         <%= link_to "Logout", logout_path, method: "delete" %> |
-        <%= link_to "Add a Post", new_post_path %> | 
-        <%= link_to "All Posts", posts_path %>
+        <%= link_to "Add an Item", new_item_path %> | 
+        <%= link_to "All Items", items_path %>
       <% else %>
         <%= link_to "Sign Up", signup_path %> |
         <%= link_to "Log In", login_path %> 
