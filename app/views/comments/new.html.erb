@@ -1,2 +1,12 @@
 <h1>New Comment</h1>
 
+<%= form_for @comment do |f| %>
+    <%= f.label :item %>:<br>
+    <%= f.collection_select :item_id, Item.all, :id, :name %><br>
+
+    <%= f.label :content %>:<br>
+    <%= f.text_area :content %><br>
+
+    <%= f.submit %>
+<% end %>
+
