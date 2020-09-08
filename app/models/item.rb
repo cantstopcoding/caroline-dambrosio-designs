@@ -1,4 +1,10 @@
 class Item < ApplicationRecord
   belongs_to :user
-  belongs_to :post
+  has_many :comments
+  has_many :users, through: :comments
+  # why has many users though?
+
+  # belongs_to :category
 end
+
+

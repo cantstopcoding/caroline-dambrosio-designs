@@ -1,11 +1,11 @@
 class User < ApplicationRecord
     has_secure_password
     
-    has_many :posts
     has_many :items
-    has_many :item_posts, through: :items, source: :post
+    has_many :comments
+    has_many :commented_items, through: :comments, source: :item
     # what does it mean to source?
 
-    has_many :categories, through: :posts
+    has_many :categories, through: :items
 
 end

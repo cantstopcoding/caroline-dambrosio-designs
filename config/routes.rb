@@ -11,12 +11,12 @@ Rails.application.routes.draw do
   delete '/logout' => 'sessions#destroy'
   
   # resources :categories
-  resources :items
+  resources :comments
   resources :users do 
-    resources :posts, only: [:new, :create, :index] #=> only: [:new, :create, :index] is called shallow routing 
+    resources :items, only: [:new, :create, :index] #=> only: [:new, :create, :index] is called shallow routing 
   end
-  resources :posts do 
-    resources :items , only: [:new, :create, :index]
+  resources :items do 
+    resources :comments , only: [:new, :create, :index]
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
