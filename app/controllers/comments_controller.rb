@@ -11,11 +11,11 @@ class CommentsController < ApplicationController
 
     def create 
       @comment = current_user.comments.build(comment_params)
-        if @comment.save
-            redirect_to comments_path
-        else
-            render :new
-        end
+      if @comment.save
+          redirect_to comments_path
+      else
+          render :new
+      end
     end
     
     def show 
@@ -37,6 +37,6 @@ class CommentsController < ApplicationController
     private
 
   def comment_params
-    params.require(:comment).permit(:name, :image, :price, :description, :post_id)
+    params.require(:comment).permit(:content, :item_id)
   end
 end
