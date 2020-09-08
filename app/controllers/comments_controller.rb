@@ -2,7 +2,12 @@ class CommentsController < ApplicationController
     before_action :redirect_if_not_logged_in
     
     def index
-      @comments = Comment.all 
+      if params[:item_id] && @item = Item.find_by(id: params[:item_id])
+        @comments = @item.comments 
+      else
+        @error = "Item doesn't exist" if params[:item_id] # user @error because flash persists through 1 redirect
+        @comments = Comment.all 
+      end
     end
     
     def new
