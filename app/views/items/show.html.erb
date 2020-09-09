@@ -1,0 +1,14 @@
+<h1><%= @item.name %></h1>
+<h2>By: <%= @item.user.first_name %> <%= @item.user.last_name %></h2>
+
+<div>
+    <p><%= image_tag(@item.image, alt: "Item Image") %><p>
+    <p>$<%= @item.price %><p>
+    <p><%= @item.description %><p>
+    <p><%= @item.content %><p>
+</div>
+
+<h4>Comments:</h4>
+<% @item.comments.each do |comment| %>
+    <li><%= comment.user.first_name %> says "<%= link_to comment.content, comment_path(comment) %>"</li>
+<% end %>
