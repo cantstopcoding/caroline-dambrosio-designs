@@ -14,7 +14,7 @@ class CommentsController < ApplicationController
       if params[:item_id] && @item = Item.find_by(id: params[:item_id])
         @comment = @item.comments.build
       else
-        @error = "Item doesn't exist" if params[:item_id] # user @error because flash persists through 1 redirect
+        @error = "Item doesn't exist" if params[:item_id] 
         @comment = Comment.new 
       end
     end
