@@ -1,10 +1,28 @@
-<h1>New Comment</h1>
+<% if @item %> <%# if @item, means if it is nested %>
+    <h1>New Comment for <%= @item.name %></h1>
+<% else%>
+    <h1>New Comment</h1>
+<% end %>
+
+<% if @comment.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+ 
+    <ul>
+    <% @comment.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
 
 <%= form_for [@item, @comment] do |f| %>
     <%# get the nested form to redirect to item/:id/comments  %>
     <% if !@item %>
         <%= f.label :item %>:<br>
         <%= f.collection_select :item_id, Item.all, :id, :name %><br>
+    <% else %>
+        <%= f.hidden_field :item_id %>
     <% end %>
 
     <%= f.label :content %>:<br>
