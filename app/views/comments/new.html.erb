@@ -1,5 +1,6 @@
-<% if @item %> <%# if @item, means if it is nested %>
-    <h1>New Comment for <%= @item.name %></h1>
+<%# only work off one variable fore each view page%>
+<% if @comment.item %> <%# if @comment.item, means if it is nested %>
+    <h1>New Comment for <%= @comment.item.name %></h1>
 <% else%>
     <h1>New Comment</h1>
 <% end %>
@@ -16,9 +17,9 @@
   </div>
 <% end %>
 
-<%= form_for [@item, @comment] do |f| %>
+<%= form_for [@comment.item, @comment] do |f| %>
     <%# get the nested form to redirect to item/:id/comments  %>
-    <% if !@item %>
+    <% if !@comment.item %>
         <%= f.label :item %>:<br>
         <%= f.collection_select :item_id, Item.all, :id, :name %><br>
     <% else %>
