@@ -5,22 +5,22 @@ class ItemsController < ApplicationController
         @item = Item.new 
     end
 
+    def index 
+        if params[:user_id] && @user = User.find_by(id: params[:user_id])
+            @items = @user.items 
+        else
+            @error = "User doesn't exist" if params[:user_id] # user @error because flash persists through 1 redirect
+            @items = Item.all 
+        end
+    end
+        
+
     def create
         @item = current_user.items.build(item_params)
         if @item.save
             redirect_to items_path
         else
             render :new
-        end
-    end
-
-    def index 
-        
-        if params[:user_id] && @user = User.find_by(id: params[:user_id])
-            @items = @user.items 
-        else
-            @error = "User doesn't exist" if params[:user_id] # user @error because flash persists through 1 redirect
-            @items = Item.all 
         end
     end
 
