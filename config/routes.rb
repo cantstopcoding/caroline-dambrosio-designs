@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   # resources :categories
   resources :comments
   resources :users do 
-    resources :items, only: [:new, :create, :index] #=> only: [:new, :create, :index] is called shallow routing 
+    resources :items, shallow: true #=> only: [:new, :create, :index]
   end
   resources :items do 
     resources :comments
