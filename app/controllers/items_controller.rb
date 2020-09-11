@@ -14,6 +14,16 @@ class ItemsController < ApplicationController
         end
     end
 
+    def index 
+        
+        if params[:user_id] && @user = User.find_by(id: params[:user_id])
+            @items = @user.items 
+        else
+            @error = "Item doesn't exist" if params[:user_id] # user @error because flash persists through 1 redirect
+            @items = Item.all 
+        end
+    end
+
     def show
         @item = Item.find_by_id(params[:id])
     end
