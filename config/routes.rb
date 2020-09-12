@@ -9,6 +9,9 @@ Rails.application.routes.draw do
   post 'login' => 'sessions#create'
 
   delete '/logout' => 'sessions#destroy'
+
+  # omniauth callback route
+  get "/auth/:provider/callback" => 'sessions#omnilogin'
   
   # it's important that this resource was on top, but why?
   resources :items do 
