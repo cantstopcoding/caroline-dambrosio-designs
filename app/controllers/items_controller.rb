@@ -16,10 +16,10 @@ class ItemsController < ApplicationController
 
     def index 
         if params[:user_id] && @user = User.find_by(id: params[:user_id])
-            @items = @user.items.alpha 
+            @items = @user.items.most_comments  
         else
             @error = "User doesn't exist" if params[:user_id] # user @error because flash persists through 1 redirect
-            @items = Item.alpha
+            @items = Item.most_comments 
         end
     end
 
