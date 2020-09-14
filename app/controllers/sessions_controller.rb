@@ -27,6 +27,7 @@ class SessionsController < ApplicationController
       user.last_name = auth[:info][:last_name]
       user.username = auth[:info][:first_name]
       user.password = SecureRandom.hex
+      # look into SecureRandom.hex later
     end
     if @user.save
       session[:user_id] = @user.id 
