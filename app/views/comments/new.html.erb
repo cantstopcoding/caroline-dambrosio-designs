@@ -5,17 +5,7 @@
     <h1>New Comment</h1>
 <% end %>
 
-<% if @comment.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
- 
-    <ul>
-    <% @comment.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-    </ul>
-  </div>
-<% end %>
+<%= render partial: "layouts/errors", locals: {object: @comment} %>
 
 <%= form_for [@comment.item, @comment] do |f| %>
     <%# get the nested form to redirect to item/:id/comments  %>
