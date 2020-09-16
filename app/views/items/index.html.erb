@@ -1,7 +1,5 @@
 <%= index_display_header %>
 
 <ul>
-    <% @items.each do |item| %>
-        <li><%= link_to item.name, item_path(item) %> - <%= item.comments.size %> comments</li>
-    <% end %>
+    <%= render partial: "items", locals: (items: @items) %>
 </ul>
