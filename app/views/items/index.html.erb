@@ -1,5 +1,3 @@
 <%= index_display_header %>
 
-<ul>
-    <%= render partial: "items", locals: (items: @items) %>
-</ul>
+<%= render partial: "items", locals: {items: @items} %>
