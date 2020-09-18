@@ -1,3 +1,5 @@
 <h2><%= @comment.content %> - <%= @comment.user.username %></h2>
 
 <h4>Item: <%= link_to @comment.item.name, item_path(@comment.item_id) %></h4>
+
+<%= button_to "Delete Comment", comment_path(@comment), :method => "delete" %>
