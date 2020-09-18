@@ -1,0 +1,22 @@
+<h1>Edit Item</h1>
+
+<%= render partial: "layouts/errors", locals: {object: @item} %>
+
+<%= form_for(@item) do |f| %>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %><br>
+    
+    <%= f.label :image %><br>
+    <%= f.text_field :image %><br>
+    
+    <%= f.label :price %><br>
+    <%= f.text_field :price %><br>
+    
+    <%= f.label :description %><br>
+    <%= f.text_field :description %><br>
+    
+    <%= f.label :content %><br>
+    <%= f.text_field :content %><br>
+
+    <%= f.submit %>
+<% end %>

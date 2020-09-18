@@ -1,10 +1,11 @@
 To Do:
 - [x] check on that view page
 - [x] take care of deleting items
-- add validations
-- add more scope methods
+- [x] add validations
+- [x] add more scope methods
 - work on authorization
 - continue to add on to form displays of validation errors
+- check to see if I'm utilizing has many through relationships
 - add more scope methods
 - refactor more
 - [x] fix omniauth
