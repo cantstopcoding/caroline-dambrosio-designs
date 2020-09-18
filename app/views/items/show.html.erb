@@ -12,7 +12,7 @@
 <p><%= link_to "Add New Comment", new_item_comment_path(@item) %></p> 
 
 <h4>Comments:</h4>
-<% @item.comments.each do |comment| %>
+<% @comments.each do |comment| %>
     <li><%= comment.user.first_name %> says "<%= link_to comment.content, item_comment_path(@item, comment) %>"</li> <%#make sure to have 2 arguments for item_comment_path%>
 <% end %>
 

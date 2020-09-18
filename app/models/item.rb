@@ -20,7 +20,6 @@ class Item < ApplicationRecord
     if todays_items.size > 19
       errors.add(:item_id, "can't post more than 20 times a day.")
     end
-    # errors.add()
   end 
 end
 
