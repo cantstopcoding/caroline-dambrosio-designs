@@ -1,22 +1,14 @@
 To Do:
 - [x] check on that view page
-- take care of deleting items
-    - i need a button or link for the delete
-    - it needs to hit a url
-        - the urls that hit item#destroy
-            - /items/:id
-        - how do i trigger a delete request?       
-    - i need a contoller action to  process the deleting of an item
-
-
-
+- [x] take care of deleting items
 - add validations
 - continue to add on to form displays of validation errors
 - add more scope methods
 - refactor more
-- fix omniauth
+- [x] fix omniauth
 - check to see if i have at least 2 has_many through relationships and if it is working
 - add categories resource
+- add image for users
 
 potential questions -
 

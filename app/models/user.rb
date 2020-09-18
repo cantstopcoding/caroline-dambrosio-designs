@@ -9,5 +9,6 @@ class User < ApplicationRecord
     has_many :categories, through: :items
 
     validates :first_name, :last_name, :username, :email, presence: true
+    validates :email, uniqueness: true
 
 end
