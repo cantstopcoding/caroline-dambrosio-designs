@@ -5,10 +5,10 @@ class CommentsController < ApplicationController
     
     def index
       if params[:item_id] && @item = Item.find_by(id: params[:item_id])
-        @comments = @item.comments 
+        @comments = @item.comments.order_recent_date 
       else
         @error = "Item doesn't exist" if params[:item_id] # user @error because flash persists through 1 redirect
-        @comments = Comment.all 
+        @comments = Comment.all.order_recent_date 
       end
     end
     
