@@ -1,3 +1,13 @@
 <%= index_display_header %>
 
-<%= render partial: "items", locals: {items: @items} %>
+<%= form_tag("/items", method: 'get') do %>
+  <%= label_tag(:q, "Search for:") %>
+  <%= text_field_tag(:q) %>
+  <%= submit_tag("Search") %>
+<% end %>
+
+<% if @items.blank? %>
+    <h2>No items yet. Create an item <%= link_to "here", new_item_path %></h2>
+<% else %>
+    <%= render partial: "items", locals: {items: @items} %>
+<% end %>
