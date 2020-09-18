@@ -27,6 +27,13 @@ class ItemsController < ApplicationController
         @item = Item.find_by_id(params[:id])
     end
 
+    def destroy
+        @item = Item.find_by_id(params[:id])
+        @item.destroy 
+        flash[:message] = "#{@item.name} deleted"
+        redirect_to user_items_path(current_user)
+    end
+
     private
 
     def item_params
