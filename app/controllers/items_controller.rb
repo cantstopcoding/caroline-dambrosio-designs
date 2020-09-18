@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
     before_action :redirect_if_not_logged_in
+    before_action :set_item, only: [:show, :edit, :update]
 
     def new
         @item = Item.new 
@@ -24,8 +25,18 @@ class ItemsController < ApplicationController
     end
 
     def show
-        @item = Item.find_by_id(params[:id])
         @comments = @item.comments.order_recent_date
+    end
+
+    def edit
+    end
+
+    def update
+      if @item.update(item_params)
+        redirect_to item_path(@item)
+      else
+        render :edit
+      end
     end
 
     def destroy
@@ -39,5 +50,13 @@ class ItemsController < ApplicationController
 
     def item_params
         params.require(:item).permit(:name, :image, :price, :description, :user_id) 
-      end
+    end
+
+    def set_item
+        @item = Item.find_by(id: params[:id])
+        if !@item
+            flash[:message] = "Item was not found"
+            redirect_to items_path
+        end
+    end
 end
