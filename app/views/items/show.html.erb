@@ -15,3 +15,5 @@
 <% @item.comments.each do |comment| %>
     <li><%= comment.user.first_name %> says "<%= link_to comment.content, item_comment_path(@item, comment) %>"</li> <%#make sure to have 2 arguments for item_comment_path%>
 <% end %>
+
+<%= button_to "Delete Item", item_path(@item), :method => "delete" %>
