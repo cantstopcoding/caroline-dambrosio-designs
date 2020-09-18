@@ -2,6 +2,8 @@ To Do:
 - [x] check on that view page
 - [x] take care of deleting items
 - add validations
+- add more scope methods
+- work on authorization
 - continue to add on to form displays of validation errors
 - add more scope methods
 - refactor more
