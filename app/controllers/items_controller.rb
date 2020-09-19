@@ -10,7 +10,7 @@ class ItemsController < ApplicationController
     def create
         @item = current_user.items.build(item_params)
         if @item.save
-            redirect_to items_path
+            redirect_to user_items_path(current_user)
         else
             render :new
         end
