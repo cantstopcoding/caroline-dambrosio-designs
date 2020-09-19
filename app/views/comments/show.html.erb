@@ -2,4 +2,4 @@
 
 <h4>Item: <%= link_to @comment.item.name, item_path(@comment.item_id) %></h4>
 
-<%= button_to "Delete Comment", comment_path(@comment), :method => "delete" %>
+<%= display_edit_or_delete %>
