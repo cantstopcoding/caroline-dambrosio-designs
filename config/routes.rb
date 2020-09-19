@@ -18,12 +18,13 @@ Rails.application.routes.draw do
     resources :comments #=> maybe do , shallow: true
   end
 
-  # resources :categories
   resources :comments
   # set it up so users only have index 
   resources :users do 
     resources :items, only: [:index]  
   end
+
+  resources :categories, only: [:index, :show]
   
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
