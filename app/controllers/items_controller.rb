@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
     before_action :redirect_if_not_logged_in
-    before_action :set_item, only: [:show, :edit, :update]
+    before_action :set_item, only: [:show, :edit, :update, :destroy]
+    before_action :redirect_if_not_item_author, only: [:edit, :update, :destroy]
 
     def new
         @item = Item.new 
@@ -58,5 +59,10 @@ class ItemsController < ApplicationController
             flash[:message] = "Item was not found"
             redirect_to items_path
         end
+    end
+
+    def redirect_if_not_item_author
+        flash[:message] = "You are not authorized to edit or delete that item!"
+        redirect_to user_path(current_user) if @item.user != current_user
     end
 end
