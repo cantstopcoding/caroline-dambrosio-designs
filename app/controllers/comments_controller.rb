@@ -23,7 +23,7 @@ class CommentsController < ApplicationController
 
     def create 
       @comment = current_user.comments.build(comment_params)
-      @item = Item.find_by(id: params[:item_id])
+      @item = Item.find_by(id: params[:comment][:item_id])
       
       if @comment.save
           redirect_to item_comments_path(@item)
