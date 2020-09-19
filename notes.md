@@ -9,7 +9,7 @@ To Do:
 - [x] add more scope methods
 - refactor more
 - [x] fix omniauth
-- check to see if i have at least 2 has_many through relationships and if it is working
+- [x] check to see if i have at least 2 has_many through relationships and if it is working
 - add categories resource
 - add image for users
 
