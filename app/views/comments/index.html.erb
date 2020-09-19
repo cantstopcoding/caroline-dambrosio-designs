@@ -5,7 +5,7 @@
 <% end %>
 
 <ul>
-    <%= @comments.each do |comment| %>
+    <% @comments.each do |comment| %>
         <li><%= comment.user.username %> says "<%= comment.content %>" about: <strong><%= link_to comment.item.name, item_path(comment.item_id) %></strong></li>
     <% end %>
 </ul><br>
