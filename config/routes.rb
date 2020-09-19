@@ -15,14 +15,14 @@ Rails.application.routes.draw do
   
   # it's important that this resource was on top, but why?
   resources :items do 
-    resources :comments
+    resources :comments #=> maybe do , shallow: true
   end
 
   # resources :categories
   resources :comments
   # set it up so users only have index 
   resources :users do 
-    resources :items, shallow: true #=> only: [:new, :create, :index]
+    resources :items, only: [:index]  
   end
   
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
