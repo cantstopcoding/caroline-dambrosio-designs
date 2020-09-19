@@ -16,5 +16,4 @@
     <li><%= comment.user.first_name %> says "<%= link_to comment.content, item_comment_path(@item, comment) %>"</li> <%#make sure to have 2 arguments for item_comment_path%>
 <% end %><br>
 
-<%= link_to "Update Item", edit_item_path %><br><br>
-<%= button_to "Delete Item", item_path(@item), :method => "delete" %>
+<%= display_edit_and_delete %>
