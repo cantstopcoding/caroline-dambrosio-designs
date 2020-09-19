@@ -7,11 +7,12 @@ To Do:
 - [x]continue to add on to form displays of validation errors
 - check to see if I'm utilizing has many through relationships
 - [x] add more scope methods
-- refactor more
+- [] refactor more
 - [x] fix omniauth
 - [x] check to see if i have at least 2 has_many through relationships and if it is working
-- add categories resource
-- add image for users
+- [] add categories resource
+- [] add image for users
+- [] work on links on views pages
 
 potential questions -
 
