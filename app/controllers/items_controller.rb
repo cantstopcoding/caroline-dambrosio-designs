@@ -4,7 +4,8 @@ class ItemsController < ApplicationController
     before_action :redirect_if_not_item_author, only: [:edit, :update, :destroy]
 
     def new
-        @item = Item.new 
+        @item = Item.new
+        @item.build_category 
     end
 
     def create
@@ -21,8 +22,9 @@ class ItemsController < ApplicationController
             @items = @user.items.most_comments  
         else
             @error = "User doesn't exist" if params[:user_id] # user @error because flash persists through 1 redirect
-            @items = Item.most_comments 
+            @items = Item.most_comments.includeds(:category, :user) 
         end
+        @items = @items.filter(params[:item][:category_id]) if params[:item] && params[:item][:category_id] != ""
     end
 
     def show
@@ -30,6 +32,7 @@ class ItemsController < ApplicationController
     end
 
     def edit
+        @item.build_category if !@item.category
     end
 
     def update
@@ -50,7 +53,7 @@ class ItemsController < ApplicationController
     private
 
     def item_params
-        params.require(:item).permit(:name, :image, :price, :description, :user_id) 
+        params.require(:item).permit(:name, :image, :price, :description, :user_id, :category_id, category_attributes: [:name]) 
     end
 
     def set_item
