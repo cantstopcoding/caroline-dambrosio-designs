@@ -4,9 +4,9 @@ To Do:
 - [x] add validations
 - [x] add more scope methods
 - work on authorization
-- continue to add on to form displays of validation errors
+- [x]continue to add on to form displays of validation errors
 - check to see if I'm utilizing has many through relationships
-- add more scope methods
+- [x] add more scope methods
 - refactor more
 - [x] fix omniauth
 - check to see if i have at least 2 has_many through relationships and if it is working
