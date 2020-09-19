@@ -69,7 +69,9 @@ class CommentsController < ApplicationController
   end
 
   def redirect_if_not_comment_author
-    flash[:message] = "You are not authorized to edit or delete that comment!"
-    redirect_to user_path(current_user) if @comment.user != current_user
+    if @comment.user != current_user
+      flash[:message] = "You are not authorized to edit or delete that comment!"
+      redirect_to user_path(current_user) 
+    end
   end
 end

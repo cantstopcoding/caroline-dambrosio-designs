@@ -62,7 +62,9 @@ class ItemsController < ApplicationController
     end
 
     def redirect_if_not_item_author
-        flash[:message] = "You are not authorized to edit or delete that item!"
-        redirect_to user_path(current_user) if @item.user != current_user
+        if @item.user != current_user
+            flash[:message] = "You are not authorized to edit or delete that item!"
+            redirect_to user_path(current_user) 
+        end
     end
 end
