@@ -7,12 +7,14 @@ To Do:
 - [x]continue to add on to form displays of validation errors
 - check to see if I'm utilizing has many through relationships
 - [x] add more scope methods
-- [] refactor more
 - [x] fix omniauth
 - [x] check to see if i have at least 2 has_many through relationships and if it is working
-- [] add categories resource
+- [x] add categories resource
 - [] add image for users
 - [] work on links on views pages
+- [] refactor more
+
+rails g migration add_image_url_to_items image_url:string --no-test-framework
 
 potential questions -
 
