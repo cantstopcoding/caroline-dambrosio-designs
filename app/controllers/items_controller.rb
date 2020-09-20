@@ -22,8 +22,9 @@ class ItemsController < ApplicationController
             @items = @user.items.most_comments  
         else
             @error = "User doesn't exist" if params[:user_id] # user @error because flash persists through 1 redirect
-            @items = Item.most_comments.includeds(:category, :user) 
+            @items = Item.most_comments.includes(:category, :user) 
         end
+        @items = @items.search(params[:q].downcase) if params[:q] && !params[:q].empty?
         @items = @items.filter(params[:item][:category_id]) if params[:item] && params[:item][:category_id] != ""
     end
 
