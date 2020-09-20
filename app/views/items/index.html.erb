@@ -6,6 +6,14 @@
   <%= submit_tag("Search") %>
 <% end %>
 
+<br>
+
+<%= form_tag("/items", method: 'get') do %>
+    <%= label_tag(:category_id, "Select a Category:") %>
+    <%= collection_select(:item,:category_id, Category.all,:id, :name) %>
+    <%= submit_tag("Filter") %>
+<% end %>
+
 <% if @items.blank? %>
     <h2>No items yet. Create an item <%= link_to "here", new_item_path %></h2>
 <% else %>
