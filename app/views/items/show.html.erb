@@ -1,9 +1,9 @@
 <h1><%= @item.name %></h1>
 <h2>By: <%= @item.user.first_name %> <%= @item.user.last_name %></h2>
-<h3>Category: <%= @item.category.try(:name)%></h3>
+<h3>Category: <%= link_to @item.category.try(:name), category_path(@item.category) %></h3>
 
 <div>
-    <p><%= image_url_tag(@item.image_url, alt: "#{@item.name} image") %><p>
+    <p><%= image_tag(@item.image_url, alt: "#{@item.name} image") %><p>
     <p>$<%= @item.price %><p>
     <p><%= @item.description %><p>
     <p><%= @item.content %><p>
