@@ -3,7 +3,7 @@
 <h3>Category: <%= @item.category.try(:name)%></h3>
 
 <div>
-    <p><%= image_tag(@item.image, alt: "Item Image") %><p>
+    <p><%= image_url_tag(@item.image_url, alt: "#{@item.name} image") %><p>
     <p>$<%= @item.price %><p>
     <p><%= @item.description %><p>
     <p><%= @item.content %><p>
