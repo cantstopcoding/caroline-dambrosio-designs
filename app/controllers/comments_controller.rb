@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
     before_action :redirect_if_not_logged_in
-    before_action :set_comment, only: [:show, :edit, :update, :destroy]
-    before_action :redirect_if_not_comment_author, only: [:edit, :update, :destroy]
+    before_action -> {set_object(Comment)}, only: [:show, :edit, :update, :destroy]
+    before_action -> {redirect_if_not_object_user_for(Comment)}, only: [:edit, :update, :destroy]
     
     def index
       if params[:item_id] && @item = Item.find_by(id: params[:item_id])
@@ -58,20 +58,5 @@ class CommentsController < ApplicationController
 
   def comment_params
     params.require(:comment).permit(:content, :item_id)
-  end
-
-  def set_comment
-    @comment = Comment.find_by(id: params[:id])
-    if !@comment
-      flash[:message] = "Comment was not found"
-      redirect_to comments_path
-    end
-  end
-
-  def redirect_if_not_comment_author
-    if @comment.user != current_user
-      flash[:message] = "You are not authorized to edit or delete that comment!"
-      redirect_to user_path(current_user) 
-    end
   end
 end
