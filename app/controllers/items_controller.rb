@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
     before_action :redirect_if_not_logged_in
-    before_action :set_item, only: [:show, :edit, :update, :destroy]
+    before_action -> {set_object(Item)}, only: [:show, :edit, :update, :destroy]
     before_action :redirect_if_not_item_author, only: [:edit, :update, :destroy]
 
     def new
@@ -59,15 +59,7 @@ class ItemsController < ApplicationController
     def item_params
         params.require(:item).permit(:name, :image, :price, :description, :user_id, :category_id, category_attributes: [:name]) 
     end
-
-    def set_item
-        @item = Item.find_by(id: params[:id])
-        if !@item
-            flash[:message] = "Item was not found"
-            redirect_to items_path
-        end
-    end
-
+    
     def redirect_if_not_item_author
         if @item.user != current_user
             flash[:message] = "You are not authorized to edit or delete that item!"

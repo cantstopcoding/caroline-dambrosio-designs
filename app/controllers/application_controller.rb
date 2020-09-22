@@ -17,4 +17,11 @@ class ApplicationController < ActionController::Base
         # maybe display flash message
         redirect_to '/' if !logged_in?
     end
+
+    def set_object(value)
+        if !instance_variable_set("@#{controller_name.singularize}", value.find_by(id: params[:id]))
+            flash[:message] = "#{controller_name.singularize} was not found"
+            redirect_to "/#{controller_name}"
+        end
+    end
 end
