@@ -24,4 +24,11 @@ class ApplicationController < ActionController::Base
             redirect_to "/#{controller_name}"
         end
     end
+
+    def redirect_if_not_object_user_for(value)
+        if !instance_variable_set("@#{controller_name.singularize}", value.find_by(id: params[:id])).user != current_user
+            flash[:message] = "You are not authorized to edit or delete that #{controller_name.singularize}!"
+            redirect_to "/users/#{current_user.id}" 
+        end
+    end
 end
