@@ -28,7 +28,7 @@ class ItemsController < ApplicationController
             # by: <%= link_to item.user.username, user_path(item.user) %> 
         end
         @items = @items.search(params[:q].downcase) if params[:q] && !params[:q].empty?
-        @items = @items.filter(params[:item][:category_id]) if params[:item] && params[:item][:category_id] != ""
+        @items = @items.filter_category(params[:item][:category_id]) if params[:item] && params[:item][:category_id] != ""
     end
 
     def show
@@ -57,6 +57,6 @@ class ItemsController < ApplicationController
     private
 
     def item_params
-        params.require(:item).permit(:name, :image, :price, :description, :user_id, :category_id, category_attributes: [:name]) 
+        params.require(:item).permit(:name, :image_url, :price, :description, :user_id, :category_id, category_attributes: [:name]) 
     end
 end
