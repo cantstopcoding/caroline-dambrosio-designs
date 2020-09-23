@@ -2,27 +2,4 @@
 
 <%= render partial: "layouts/errors", locals: {object: @item} %>
 
-<%= form_for @item do |f| %>
-    <%= f.label "Choose a category:" %><br>
-    <%= f.collection_select :category_id, Category.all, :id, :name, include_blank: true %>
-
-    <p>Or create a new category:<br>
-        <%= f.fields_for :category do |category|%>
-            <%= category.text_field :name%>
-        <% end %>
-  </p>
-    
-    <%= f.label :name %><br>
-    <%= f.text_field :name %><br>
-    
-    <%= f.label :image_url %><br>
-    <%= f.text_field :image_url %><br>
-    
-    <%= f.label :price %><br>
-    <%= f.number_field :price, step: 0.01 %><br>
-    
-    <%= f.label :description %><br>
-    <%= f.text_field :description %><br>
-
-    <%= f.submit %>
-<% end %>
+<%= render "form" %>
