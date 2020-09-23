@@ -18,7 +18,4 @@
     <h2>No items yet. Create an item <%= link_to "here", new_item_path %></h2>
 <% else %>
     <%= render partial: "items", locals: {items: @items} %>
-    <% if @display_author%>
-        by: <%= link_to item.user.username, user_path(item.user) %> 
-    <% end %>
 <% end %>

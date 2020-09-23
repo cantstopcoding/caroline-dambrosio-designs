@@ -22,4 +22,10 @@ module ItemsHelper
             button_to("Delete Item", item_path(@item), :method => "delete")
         end
     end
+
+    def display_author
+        if @display_author
+            link_to(item.user.username, user_path(item.user))
+        end 
+    end
 end
