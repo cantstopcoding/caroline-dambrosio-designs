@@ -5,8 +5,6 @@ class Item < ApplicationRecord
   has_many :commented_users, through: :comments, source: :user
   # why has many users though?
 
-  # has_many :commented_items, through: :comments, source: :item
-
   # delegate :name, to: :category
 
   validates :name, :image_url, :price, :description, presence: true
@@ -21,10 +19,6 @@ class Item < ApplicationRecord
   def self.search(params)
     left_joins(:comments).where("LOWER(items.name) LIKE :term OR LOWER(items.name) LIKE :term OR LOWER(comments.content) LIKE :term", term: "%#{params}%")
   end
-  
-  # def self.filter(params)
-  #   where("category_id = ?", params)
-  # end
 
   def category_attributes=(attr)
     self.category = Category.find_or_create_by(attr) if !attr[:name].blank?
