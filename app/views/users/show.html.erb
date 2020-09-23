@@ -4,3 +4,11 @@
 <%= display_items %>
 
 <%= render partial: "items/items", locals: {items: @user.items} %>
+
+<h2>Items You Commented On:<h2>
+
+<% @user.commented_items.each do |i| %>
+    <ul>
+        <li><%= link_to i.name, item_path(i) %></li>
+    </ul>
+<% end %>

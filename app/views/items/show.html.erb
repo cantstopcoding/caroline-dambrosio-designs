@@ -17,4 +17,12 @@
     <li><%= link_to comment.user.first_name, user_path(comment.user) %> says "<%= link_to comment.content, item_comment_path(@item, comment) %>"</li> <%#make sure to have 2 arguments for item_comment_path%>
 <% end %><br>
 
+<h3>Users who Commented on Your Item:<h3>
+
+<% @item.commented_users.each do |u| %>
+    <ul>
+        <li><%= link_to u.username, item_path(u) %></li>
+    </ul>
+<% end %>
+
 <%= display_edit_and_delete %>
