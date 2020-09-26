@@ -1,6 +1,6 @@
 # README
 
-Fork and clone this project. Try this app in your local environment.
+To use this app fork and clone this project. Try this app in your local environment.
 
 Run the following command inside this project's directory.
 
