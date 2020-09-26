@@ -1,6 +1,6 @@
 # README
 
-To use this app fork and clone this project. Run the following command inside the directory.
+To use this app fork and clone this project. Run the following commands inside the directory.
 
 `$ bundle install`
 
