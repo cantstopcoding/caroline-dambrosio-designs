@@ -10,9 +10,9 @@ To Do:
 - [x] fix omniauth
 - [x] check to see if i have at least 2 has_many through relationships and if it is working
 - [x] add categories resource
-- [] add image for users
-- [] work on links on views pages
-- [] refactor more
+- [x] add image for users
+- [x] work on links on views pages
+- [x] refactor more
 
 rails g migration add_image_url_to_items image_url:string --no-test-framework
 
