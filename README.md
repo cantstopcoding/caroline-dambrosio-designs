@@ -1,15 +1,15 @@
 # README
 
-To use this app fork and clone this project. Run the following commands inside the directory.
+To use this app fork and clone this project. Run the following commands inside the directory:
 
 `$ bundle install`
 
 `$ rails db:migrate`
 
 `$ rails db:seed`<br><br>
-Start up local server
+Start up local server:
 
 `$ rails s`<br><br>
-For interactive console
+For interactive console:
 
 `$ rails console`
