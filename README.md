@@ -4,7 +4,7 @@ To use this app fork and clone this project. Try this app in your local environm
 
 Run the following command inside this project's directory.
 
-$ bundle install
+`$ bundle install`
 
 $ rails db:migrate
 
