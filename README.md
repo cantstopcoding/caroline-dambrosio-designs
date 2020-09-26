@@ -6,12 +6,12 @@ Run the following command inside this project's directory.
 
 `$ bundle install`
 
-$ rails db:migrate
+`$ rails db:migrate`
 
-$ rails db:seed (if applicable)
+`$ rails db:seed`
 Start up local server
 
-$ rails s
+`$ rails s`
 For interactive console
 
-$ rails console
+`$ rails console`
