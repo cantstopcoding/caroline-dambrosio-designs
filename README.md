@@ -1,24 +1,17 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Fork and clone this project. Try this app in your local environment.
 
-Things you may want to cover:
+Run the following command inside this project's directory.
 
-* Ruby version
+$ bundle install
 
-* System dependencies
+$ rails db:migrate
 
-* Configuration
+$ rails db:seed (if applicable)
+Start up local server
 
-* Database creation
+$ rails s
+For interactive console
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+$ rails console
