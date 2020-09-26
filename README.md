@@ -8,10 +8,10 @@ Run the following command inside this project's directory.
 
 `$ rails db:migrate`
 
-`$ rails db:seed`
+`$ rails db:seed`<br>
 Start up local server
 
-`$ rails s`
+`$ rails s`<br>
 For interactive console
 
 `$ rails console`
