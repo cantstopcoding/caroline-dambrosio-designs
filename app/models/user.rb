@@ -1,5 +1,6 @@
 class User < ApplicationRecord
     has_secure_password
+    # macro used for salting password, etc.
     
     has_many :items
     has_many :comments
@@ -9,7 +10,7 @@ class User < ApplicationRecord
     has_many :categories, through: :items
 
     validates :first_name, :last_name, :username, :email, presence: true
-    validates :email, uniqueness: true
+    validates :email, :username, uniqueness: true
     validates :username, :first_name, :last_name, :length => { :minimum => 2 }
     
 

@@ -3,7 +3,6 @@ class Item < ApplicationRecord
   belongs_to :category
   has_many :comments, dependent: :destroy
   has_many :commented_users, through: :comments, source: :user
-  # why has many users though?
 
   # delegate :name, to: :category
 
@@ -28,7 +27,7 @@ class Item < ApplicationRecord
     todays_items = user.items.select do |item|
       item.created_at.try(:to_date) == Date.today
     end
-    if todays_items.size > 19
+    if todays_items.size > 20
       errors.add(:item_id, "can't post more than 20 times a day.")
     end
   end 
