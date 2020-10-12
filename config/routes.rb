@@ -13,6 +13,12 @@ Rails.application.routes.draw do
   # omniauth callback route
   get "/auth/:provider/callback" => 'sessions#omnilogin'
   
+  concern :most_commented_items do 
+      get 'most-commented-items' => 'items#most_commented_items'
+  end
+
+  concerns :most_commented_items
+
   # it's important that this resource was on top, but why?
   resources :items do 
     resources :comments #=> maybe do , shallow: true
@@ -20,8 +26,8 @@ Rails.application.routes.draw do
 
   resources :comments
   # set it up so users only have index 
-  resources :users do 
-    resources :items, only: [:index]  
+  resources :users, concerns: :most_commented_items do 
+    resources :items, only: [:index]
   end
 
   resources :categories, only: [:index, :show]

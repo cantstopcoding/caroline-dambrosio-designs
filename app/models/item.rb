@@ -13,6 +13,7 @@ class Item < ApplicationRecord
   scope :alpha, -> { (order(:name)) }
   scope :most_comments, -> { left_joins(:comments).group('items.id').order('count(comments.item_id) desc') } 
   # :comments is AREL syntax 'items.id' is query syntax and it's using plural table (items) name and column name (id)
+  # create most_comments route for most_comments scope method
   scope :filter_category, -> (id) {where("category_id = ?", id)}
 
   def self.search(params)

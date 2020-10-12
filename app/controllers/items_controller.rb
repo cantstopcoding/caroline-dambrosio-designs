@@ -52,6 +52,16 @@ class ItemsController < ApplicationController
         redirect_to user_items_path(current_user)
     end
 
+    def most_commented_items
+        if params[:user_id] && @user = User.find_by(id: params[:user_id])
+            @items = @user.items.most_comments  
+        else
+            @error = "User doesn't exist" if params[:user_id] # user @error because flash persists through 1 redirect
+            @items = Item.most_comments.includes(:category, :user) 
+            @display_user = true
+        end
+    end
+
     private
 
     def item_params
