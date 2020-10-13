@@ -2,7 +2,7 @@ Specifications for the Rails Assessment
 
 Specs:
 
-[x] Using Ruby on Rails for the project
+[x] Using Ruby on Rails for the project #rails is a web framework, a ruby gem, an mvc framework
 [x] Include at least one has_many relationship (x has_many y; e.g. User has_many Recipes)
 [x] Include at least one belongs_to relationship (x belongs_to y; e.g. Post belongs_to User)
 [x] Include at least two has_many through relationships (x has_many y through z; e.g. Recipe has_many Items through Ingredients)
