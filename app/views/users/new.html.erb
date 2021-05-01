@@ -1,28 +1,28 @@
 <h1>Sign Up</h1>
 
-<%= render partial: "layouts/errors", locals: {object: @user} %>
+<%= render partial: "layouts/errors", locals: { object: @user } %>
 
-<%= form_for @user, url: '/signup' do |f| %>
+<%= form_for @user, url: "/signup" do |f| %>
 
     <%= f.label :first_name %><br>
-    <%= f.text_field :first_name%><br>
+    <%= f.text_field :first_name %><br>
     
     <%= f.label :last_name %><br>
-    <%= f.text_field :last_name%><br>
+    <%= f.text_field :last_name %><br>
     
     <%= f.label :username %><br>
-    <%= f.text_field :username%><br>
+    <%= f.text_field :username %><br>
     
     <%= f.label :image_url %><br>
-    <%= f.text_field :image_url%><br>
+    <%= f.text_field :image_url %><br>
     
     <%= f.label :email %><br>
-    <%= f.email_field :email%><br>
+    <%= f.email_field :email %><br>
     
     <%= f.label :password %><br>
-    <%= f.password_field :password%><br>
+    <%= f.password_field :password %><br>
 
     <%= f.submit "Submit" %>
 <% end %>
 
-<%# add , required: true at the end %>
+<% # add , required: true at the end %>
