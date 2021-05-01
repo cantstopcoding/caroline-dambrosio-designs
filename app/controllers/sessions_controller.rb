@@ -12,8 +12,8 @@ class SessionsController < ApplicationController
       redirect_to user_path(user) #=> "/users/#{user.id}"
     else
       flash[:message] = "Incorrect info, please try agin"
-      redirect_to '/login'
-    end 
+      redirect_to "/login"
+    end
   end
 
   def destroy
@@ -30,16 +30,16 @@ class SessionsController < ApplicationController
       # look into SecureRandom.hex later
     end
     if @user.save
-      session[:user_id] = @user.id 
+      session[:user_id] = @user.id
       redirect_to user_path(@user)
     else
-      redirect_to '/'
+      redirect_to "/"
     end
-  end 
+  end
 
   private
 
   def auth
-    request.env['omniauth.auth']
+    request.env["omniauth.auth"]
   end
 end

@@ -1,30 +1,29 @@
 class UsersController < ApplicationController
-    def new
-        @user = User.new
-    end
-    
-    def create
-        @user = User.new(user_params)
-        if @user.save
-            session[:user_id] = @user.id
-            redirect_to @user
-        else
-            render :new
-        end
-    end
+  def new
+    @user = User.new
+  end
 
-    def show
-        redirect_if_not_logged_in
-        # use find_by instead of find because find will throw up error 
-        # and find_by will return nil
-        @user = User.includes(items: :category).find_by(id: params[:id])
-        redirect_to '/' if !@user
+  def create
+    @user = User.new(user_params)
+    if @user.save
+      session[:user_id] = @user.id
+      redirect_to @user
+    else
+      render :new
     end
+  end
 
-    private
+  def show
+    redirect_if_not_logged_in
+    # use find_by instead of find because find will throw up error
+    # and find_by will return nil
+    @user = User.includes(items: :category).find_by(id: params[:id])
+    redirect_to "/" if !@user
+  end
 
-    def user_params
-        params.require(:user).permit(:first_name, :last_name, :username, :email, :password, :image_url)
-    end
+  private
 
+  def user_params
+    params.require(:user).permit(:first_name, :last_name, :username, :email, :password, :image_url)
+  end
 end

@@ -1,34 +1,35 @@
 class ApplicationController < ActionController::Base
-    # so I can use these methods in the views 
-    helper_method :current_user, :logged_in?
+  # so I can use these methods in the views
+  helper_method :current_user, :logged_in?
 
-    private
-    # I used the name @current_user so nothing get overridden
-    # this is called memoization 
-    def current_user
-        @current_user ||= User.find_by_id(session[:user_id]) if session[:user_id] #=> use if statement so as to not make a call to database, if not necessary
-    end
+  private
 
-    def logged_in?
-        !!session[:user_id] #=> more secure way is if @current_user is truthy
-    end
+  # I used the name @current_user so nothing get overridden
+  # this is called memoization
+  def current_user
+    @current_user ||= User.find_by_id(session[:user_id]) if session[:user_id] #=> use if statement so as to not make a call to database, if not necessary
+  end
 
-    def redirect_if_not_logged_in
-        # maybe display flash message
-        redirect_to '/' if !logged_in?
-    end
+  def logged_in?
+    !!session[:user_id] #=> more secure way is if @current_user is truthy
+  end
 
-    def set_object(value)
-        if !instance_variable_set("@#{controller_name.singularize}", value.find_by(id: params[:id]))
-            flash[:message] = "#{controller_name.singularize} was not found"
-            redirect_to "/#{controller_name}"
-        end
-    end
+  def redirect_if_not_logged_in
+    # maybe display flash message
+    redirect_to "/" if !logged_in?
+  end
 
-    def redirect_if_not_object_user_for(value)
-        if instance_variable_set("@#{controller_name.singularize}", value.find_by(id: params[:id])).user != current_user
-            flash[:message] = "You are not authorized to edit or delete that #{controller_name.singularize}!"
-            redirect_to "/users/#{current_user.id}" 
-        end
+  def set_object(value)
+    if !instance_variable_set("@#{controller_name.singularize}", value.find_by(id: params[:id]))
+      flash[:message] = "#{controller_name.singularize} was not found"
+      redirect_to "/#{controller_name}"
     end
+  end
+
+  def redirect_if_not_object_user_for(value)
+    if instance_variable_set("@#{controller_name.singularize}", value.find_by(id: params[:id])).user != current_user
+      flash[:message] = "You are not authorized to edit or delete that #{controller_name.singularize}!"
+      redirect_to "/users/#{current_user.id}"
+    end
+  end
 end
