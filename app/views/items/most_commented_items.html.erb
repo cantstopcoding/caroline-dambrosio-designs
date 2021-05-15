@@ -1,7 +1,6 @@
 <h1>Most Commented Items!</h1>
-
 <% if @items.blank? %>
-    <h2>No items yet. Create an item <%= link_to "here", new_item_path %></h2>
+  <h2>No items yet. Create an item <%= link_to "here", new_item_path %></h2>
 <% else %>
-    <%= render partial: "items", locals: {items: @items} %>
+  <%= render partial: "items", locals: {items: @items} %>
 <% end %>

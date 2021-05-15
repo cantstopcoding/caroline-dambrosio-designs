@@ -1,11 +1,11 @@
 <% if @item %>
-    <h1>Comments for <%= @item.name %></h1>
+  <h1>Comments for <%= @item.name %></h1>
 <% else %>
-    <h1>All Comments</h1>
+  <h1>All Comments</h1>
 <% end %>
-
 <ul>
-    <% @comments.each do |comment| %> 
-        <li><%= link_to comment.user.username, user_path(comment.user) %> says "<%= comment.content %>" about: <strong><%= link_to comment.item.name, item_path(comment.item_id) %></strong></li>
-    <% end %>
-</ul><br>
+  <% @comments.each do |comment| %>
+    <li><%= link_to comment.user.username, user_path(comment.user) %> says "<%= comment.content %>" about: <strong><%= link_to comment.item.name, item_path(comment.item_id) %></strong></li>
+  <% end %>
+</ul>
+<br>

@@ -1,24 +1,19 @@
 <%# only work off one variable fore each view page%>
 <% if @comment.item %> <%# if @comment.item, means if it is nested %>
-    <h1>New Comment for <%= @comment.item.name %></h1>
+  <h1>New Comment for <%= @comment.item.name %></h1>
 <% else%>
-    <h1>New Comment</h1>
+  <h1>New Comment</h1>
 <% end %>
-
 <%= render partial: "layouts/errors", locals: {object: @comment} %>
-
 <%= form_for [@comment.item, @comment] do |f| %>
-    <%# get the nested form to redirect to item/:id/comments  %>
-    <% if !@comment.item %>
-        <%= f.label :item %>:<br>
-        <%= f.collection_select :item_id, Item.all, :id, :name %><br>
-    <% else %>
-        <%= f.hidden_field :item_id %>
-    <% end %>
-
-    <%= f.label :content %>:<br>
-    <%= f.text_area :content %><br>
-
-    <%= f.submit %>
+  <%# get the nested form to redirect to item/:id/comments  %>
+  <% if !@comment.item %>
+    <%= f.label :item %>:<br>
+    <%= f.collection_select :item_id, Item.all, :id, :name %><br>
+  <% else %>
+    <%= f.hidden_field :item_id %>
+  <% end %>
+  <%= f.label :content %>:<br>
+  <%= f.text_area :content %><br>
+  <%= f.submit %>
 <% end %>
-

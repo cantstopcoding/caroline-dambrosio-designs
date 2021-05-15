@@ -1,14 +1,12 @@
 <h1><%= @user.username %></h1>
-<p><%= image_tag(@user.image_url, alt: "#{@user.username} profile pic") if @user.image_url %><p>
-
-<%= display_items %>
-
-<%= render partial: "items/items", locals: { items: @user.items } %>
-
-<h2>Items You Commented On:<h2>
-
-<% @user.commented_items.each do |i| %>
-    <ul>
-        <li><%= link_to i.name, item_path(i) %></li>
-    </ul>
-<% end %>
+<p><%= image_tag(@user.image_url, alt: "#{@user.username} profile pic") if @user.image_url %>
+  <p>
+    <%= display_items %>
+    <%= render partial: "items/items", locals: { items: @user.items } %>
+    <h2>Items You Commented On:
+      <h2>
+        <% @user.commented_items.each do |i| %>
+          <ul>
+            <li><%= link_to i.name, item_path(i) %></li>
+          </ul>
+        <% end %>

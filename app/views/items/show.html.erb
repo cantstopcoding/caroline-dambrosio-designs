@@ -1,28 +1,29 @@
 <h1><%= @item.name %></h1>
 <h2>By: <%= @item.user.first_name %> <%= @item.user.last_name %></h2>
 <h3>Category: <%= link_to @item.category.try(:name), category_path(@item.category) %></h3>
-
 <div>
-    <p><%= image_tag(@item.image_url, alt: "#{@item.name} image") %><p>
-    <p>$<%= @item.price %><p>
-    <p><%= @item.description %><p>
-    <p><%= @item.content %><p>
-</div>
-
-<p><%= link_to "See All Comments", item_comments_path(@item) %></p> <%# the argument we have to let them know which specific item we want to see the comments of%>
-<p><%= link_to "Add New Comment", new_item_comment_path(@item) %></p> 
-
-<h4>Comments:</h4>
-<% @comments.each do |comment| %>
-    <li><%= link_to comment.user.first_name, user_path(comment.user) %> says "<%= link_to comment.content, item_comment_path(@item, comment) %>"</li> <%#make sure to have 2 arguments for item_comment_path%>
-<% end %><br>
-
-<h3>Users who Commented on Your Item:<h3>
-
-<% @item.commented_users.each do |u| %>
-    <ul>
-        <li><%= link_to u.username, item_path(u) %></li>
-    </ul>
-<% end %>
-
-<%= display_edit_and_delete %>
+  <p><%= image_tag(@item.image_url, alt: "#{@item.name} image") %>
+    <p>
+      <p>$<%= @item.price %>
+        <p>
+          <p><%= @item.description %>
+            <p>
+              <p><%= @item.content %>
+                <p>
+                </div>
+                <p><%= link_to "See All Comments", item_comments_path(@item) %></p>
+                <%# the argument we have to let them know which specific item we want to see the comments of%>
+                <p><%= link_to "Add New Comment", new_item_comment_path(@item) %></p>
+                <h4>Comments:</h4>
+                <% @comments.each do |comment| %>
+                  <li><%= link_to comment.user.first_name, user_path(comment.user) %> says "<%= link_to comment.content, item_comment_path(@item, comment) %>"</li>
+                  <%#make sure to have 2 arguments for item_comment_path%>
+                <% end %><br>
+                <h3>Users who Commented on Your Item:
+                  <h3>
+                    <% @item.commented_users.each do |u| %>
+                      <ul>
+                        <li><%= link_to u.username, item_path(u) %></li>
+                      </ul>
+                    <% end %>
+                    <%= display_edit_and_delete %>
