@@ -20,7 +20,8 @@
         <%= link_to "Logout", logout_path, method: "delete" %>
       <% else %>
         <%= link_to "Sign Up", signup_path %> |
-        <%= link_to "Log In", login_path %>
+        <%= link_to "Log In", login_path %> |
+        <%= link_to "Log In With Google", '/auth/google_oauth2' %>
       <% end %>
     </div>
     <%= flash[:message] if flash[:message] %>
