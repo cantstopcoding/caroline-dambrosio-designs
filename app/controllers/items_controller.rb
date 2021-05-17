@@ -22,7 +22,7 @@ class ItemsController < ApplicationController
       @items = @user.items.most_comments
     else
       @error = "User doesn't exist" if params[:user_id] # user @error because flash persists through 1 redirect
-      @items = Item.most_comments.includes(:category, :user)
+      @items = Item.most_comments
       @display_user = true
       # by: <%= link_to item.user.username, user_path(item.user) %>
     end
@@ -57,7 +57,7 @@ class ItemsController < ApplicationController
       @items = @user.items.most_comments
     else
       @error = "User doesn't exist" if params[:user_id] # user @error because flash persists through 1 redirect
-      @items = Item.most_comments.includes(:category, :user)
+      @items = Item.most_comments
       @display_user = true
     end
   end
