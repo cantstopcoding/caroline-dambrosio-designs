@@ -1,4 +1,7 @@
 class CategoriesController < ApplicationController
+  before_action :redirect_if_not_logged_in
+  before_action -> { set(Category) }, only: [:show]
+
   def index
     @categories = Category.all
   end
