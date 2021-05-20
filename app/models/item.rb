@@ -6,7 +6,7 @@ class Item < ApplicationRecord
 
   # delegate :name, to: :category
 
-  validates :name, :image_url, :price, :description, presence: true
+  validates :name, :image_url, :price, :description, :content, presence: true
   # form for field creates a fild_with_errors and the page must be rendered, in addition with presence: true
 
   scope :alpha, -> { (order(:name)) }
