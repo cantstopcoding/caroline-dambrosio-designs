@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   before_action :redirect_if_not_logged_in
   before_action -> { set(Item) }, only: [:show, :edit, :update, :destroy]
-  before_action -> { redirect_if_not_object_user_for(Item) }, only: [:edit, :update, :destroy]
+  before_action -> { redirect_if_not_user_for(Item) }, only: [:edit, :update, :destroy]
 
   def new
     @item = Item.new

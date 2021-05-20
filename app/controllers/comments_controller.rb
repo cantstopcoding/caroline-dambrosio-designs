@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
   before_action :redirect_if_not_logged_in
   before_action -> { set(Comment) }, only: [:show, :edit, :update, :destroy]
-  before_action -> { redirect_if_not_object_user_for(Comment) }, only: [:edit, :update, :destroy]
+  before_action -> { redirect_if_not_user_for(Comment) }, only: [:edit, :update, :destroy]
 
   def index
     if params[:item_id] && @item = Item.find_by(id: params[:item_id])
