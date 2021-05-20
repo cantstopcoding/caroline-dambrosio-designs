@@ -35,7 +35,6 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    @item.build_category if !@item.category
   end
 
   def update
