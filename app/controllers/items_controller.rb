@@ -19,12 +19,11 @@ class ItemsController < ApplicationController
 
   def index
     if params[:user_id] && @user = User.find_by(id: params[:user_id])
-      @items = @user.items.most_comments
+      @items = @user.items.alpha
     else
       @error = "User doesn't exist" if params[:user_id] # user @error because flash persists through 1 redirect
-      @items = Item.most_comments
+      @items = Item.alpha
       @display_user = true
-      # by: <%= link_to item.user.username, user_path(item.user) %>
     end
     @items = @items.filter_category(params[:item][:category_id]) if params[:item] && params[:item][:category_id] != ""
   end

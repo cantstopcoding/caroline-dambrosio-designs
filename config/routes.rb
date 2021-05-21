@@ -19,7 +19,6 @@ Rails.application.routes.draw do
 
   concerns :most_commented_items
 
-  # it's important that this resource was on top, but why?
   resources :items do
     resources :comments #=> maybe do , shallow: true
   end
@@ -31,7 +30,7 @@ Rails.application.routes.draw do
   end
 
   resources :categories, only: [:index, :show]
-  get "*path" => redirect("/")
+  # get "*path" => redirect("/")
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
