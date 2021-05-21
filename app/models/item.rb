@@ -15,10 +15,6 @@ class Item < ApplicationRecord
   # create most_comments route for most_comments scope method
   scope :filter_category, ->(id) { where("category_id = ?", id) }
 
-  def self.search(params)
-    left_joins(:comments).where("LOWER(items.name) LIKE :term OR LOWER(items.name) LIKE :term OR LOWER(comments.content) LIKE :term", term: "%#{params}%")
-  end
-
   def category_attributes=(attr)
     self.category = Category.find_or_create_by(attr) if !attr[:name].blank?
   end
